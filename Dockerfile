@@ -23,7 +23,7 @@ RUN apt-get update -qq \
 # See http://nodejs.org/dist/npm-versions.txt
 # for valid node versions
 
-ENV NODE_VERSION v6.9.1
+ENV NODE_VERSION v7.6.0
 
 # install nodejs
 RUN cd /tmp && \
