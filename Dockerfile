@@ -2,6 +2,9 @@ FROM ruby:2.3.1
 
 MAINTAINER Codaisseur <oss@codaisseur.com>
 
+RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update -qq \
   && apt-get install -yq \
     build-essential \
@@ -14,12 +17,13 @@ RUN apt-get update -qq \
     python-dev \
     python-pip \
     python-virtualenv \
+    yarn \
   && rm -rf /var/lib/apt/lists/*
 
 # See http://nodejs.org/dist/npm-versions.txt
 # for valid node versions
 
-ENV NODE_VERSION v6.9.1
+ENV NODE_VERSION v7.6.0
 
 # install nodejs
 RUN cd /tmp && \
