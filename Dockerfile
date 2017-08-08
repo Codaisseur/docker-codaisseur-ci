@@ -45,4 +45,6 @@ RUN pip install awscli
 WORKDIR /app
 ONBUILD ADD . /app
 
-CMD ["bash"]
+ENTRYPOINT "/bin/bash"
+
+CMD ["/bin/bash"]
